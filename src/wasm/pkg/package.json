@@ -1,0 +1,24 @@
+{
+  "name": "sha3_wasm",
+  "type": "module",
+  "collaborators": [
+    "hazae41 <4405263+hazae41@users.noreply.github.com>"
+  ],
+  "description": "WebAssembly port of Sha3",
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hazae41/sha3.wasm"
+  },
+  "files": [
+    "sha3_wasm_bg.wasm",
+    "sha3_wasm.js",
+    "sha3_wasm.d.ts"
+  ],
+  "main": "sha3_wasm.js",
+  "types": "sha3_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
