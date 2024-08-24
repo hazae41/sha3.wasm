@@ -2,7 +2,7 @@
   "type": "module",
   "name": "@hazae41/sha3.wasm",
   "version": "1.0.4",
-  "description": "WebAssembly port of Sha3",
+  "description": "WebAssembly port of SHA-3",
   "homepage": "https://github.com/hazae41/sha3.wasm",
   "repository": "github:hazae41/sha3.wasm",
   "author": "hazae41",
