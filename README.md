@@ -17,7 +17,7 @@ npm i @hazae41/sha3.wasm
 - sha3
 
 ## Algorithms
-- Keccak256 (direct and incremental)
+- Keccak-256 (direct and incremental)
 
 ## Usage
 
