@@ -3,10 +3,10 @@
 WebAssembly port of SHA-3
 
 ```bash
-npm i @hazae41/sha3.wasm
+npm install --save-peer @hazae41/sha3-wasm
 ```
 
-[**Node Package 📦**](https://www.npmjs.com/package/@hazae41/sha3.wasm)
+[**Node Package 📦**](https://www.npmjs.com/package/@hazae41/sha3-wasm)
 
 ## Features
 - Reproducible building
@@ -24,19 +24,19 @@ npm i @hazae41/sha3.wasm
 ### Direct
 
 ```typescript
-import { Sha3Wasm, Memory, keccak256 } from "@hazae41/sha3.wasm";
+import { sha3Wasm } from "@hazae41/sha3.wasm";
 
 // Wait for WASM to load
-await Sha3Wasm.initBundled();
+await sha3Wasm.load();
 
 // Data to be hashed
 const hello = new TextEncoder().encode("Hello World")
 
 // Pass to WASM
-using memory = new Memory(hello)
+using memory = new sha3Wasm.Memory(hello)
 
 // Grab the digest
-using digest = keccak256(memory)
+using digest = sha3Wasm.keccak256(memory)
 
 console.log(digest.bytes) // Uint8Array
 ```
@@ -44,19 +44,19 @@ console.log(digest.bytes) // Uint8Array
 ### Incremental
 
 ```typescript
-import { Sha3Wasm, Memory, Keccak256Hasher } from "@hazae41/sha3.wasm";
+import { sha3Wasm } from "@hazae41/sha3.wasm";
 
 // Wait for WASM to load
-await Sha3Wasm.initBundled();
+await sha3Wasm.load();
 
 // Create a hash
-using hasher = new Keccak256Hasher()
+using hasher = new sha3Wasm.Keccak256Hasher()
 
 // Data to be hashed
 const hello = new TextEncoder().encode("Hello World")
 
 // Pass to WASM
-using memory = new Memory(hello)
+using memory = new sha3Wasm.Memory(hello)
 
 // Update the hash with your data
 hasher.update(memory)
@@ -77,28 +77,12 @@ console.log(digest2.bytes)
 
 ## Building
 
-### Unreproducible building
-
-You need to install [Rust](https://www.rust-lang.org/tools/install)
-
-Then, install [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
-
-```bash
-cargo install wasm-pack
-```
-
-Finally, do a clean install and build
-
-```bash
-npm ci && npm run build
-```
-
 ### Reproducible building
 
-You can build the exact same bytecode using Docker, just be sure you're on a `linux/amd64` host
+You can build the exact same bytecode
 
 ```bash
-docker compose up --build
+npm run compile && npm run prepack
 ```
 
 Then check that all the files are the same using `npm diff`
@@ -107,7 +91,7 @@ Then check that all the files are the same using `npm diff`
 npm diff
 ```
 
-If the output is empty then the bytecode is the same as the one I commited
+If the output is empty then the bytecode is the same as the one I published on NPM.
 
 ### Automated checks
 
