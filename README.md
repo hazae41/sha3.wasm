@@ -6,7 +6,7 @@ WebAssembly port of SHA-3
 npm install @hazae41/sha3-wasm
 ```
 
-[**Node Package 📦**](https://www.npmjs.com/package/@hazae41/sha3-wasm)
+[**NPM 📦**](https://www.npmjs.com/package/@hazae41/sha3-wasm)
 
 ## Features
 - Reproducible building
