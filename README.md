@@ -3,7 +3,7 @@
 WebAssembly port of SHA-3
 
 ```bash
-npm install --save-peer @hazae41/sha3-wasm
+npm install @hazae41/sha3-wasm
 ```
 
 [**Node Package 📦**](https://www.npmjs.com/package/@hazae41/sha3-wasm)
