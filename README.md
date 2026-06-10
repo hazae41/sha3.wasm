@@ -24,19 +24,18 @@ npm install @hazae41/sha3-wasm
 ### Direct
 
 ```typescript
-import { sha3Wasm } from "@hazae41/sha3.wasm";
+import { load, Memory, keccak256 } from "@hazae41/sha3.wasm";
 
-// Wait for WASM to load
-await sha3Wasm.load();
+await load()
 
 // Data to be hashed
 const hello = new TextEncoder().encode("Hello World")
 
 // Pass to WASM
-using memory = new sha3Wasm.Memory(hello)
+using memory = new Memory(hello)
 
 // Grab the digest
-using digest = sha3Wasm.keccak256(memory)
+using digest = keccak256(memory)
 
 console.log(digest.bytes) // Uint8Array
 ```
@@ -44,19 +43,18 @@ console.log(digest.bytes) // Uint8Array
 ### Incremental
 
 ```typescript
-import { sha3Wasm } from "@hazae41/sha3.wasm";
+import { load, Memory, Keccak256Hasher } from "@hazae41/sha3.wasm";
 
-// Wait for WASM to load
-await sha3Wasm.load();
+await load()
 
 // Create a hash
-using hasher = new sha3Wasm.Keccak256Hasher()
+using hasher = new Keccak256Hasher()
 
 // Data to be hashed
 const hello = new TextEncoder().encode("Hello World")
 
 // Pass to WASM
-using memory = new sha3Wasm.Memory(hello)
+using memory = new Memory(hello)
 
 // Update the hash with your data
 hasher.update(memory)
